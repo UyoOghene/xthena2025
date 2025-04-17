@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Xthena | Architectural Excellence</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Preloader -->
@@ -25,7 +28,7 @@
     <header class="glass-nav">
         <div class="container">
             <a href="index.html" class="logo">
-                <img src="/images/logonew.jpg" alt="Xthena Logo">
+                <img src="images/logonew.jpg" alt="Xthena Logo">
             </a>
             <nav>
                 <ul class="nav-links">
@@ -45,27 +48,27 @@
         </div>
     </header>
 
-<!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-particles" id="particles-js"></div>
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title"><span class="title-word title-word-1">Xthena</span> </h1>
-            <p class="hero-subtitle">Where innovative design meets timeless elegance</p>
-            <div class="hero-btns">
-                <a href="#projects" class="btn-primary pulse">View Portfolio</a>
-                <a href="#contact" class="btn-secondary slide">Get Consultation</a>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-particles" id="particles-js"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title"><span class="title-word title-word-1">Xthena</span></h1>
+                <p class="hero-subtitle">Where innovative design meets timeless elegance</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-primary pulse">View Portfolio</a>
+                    <a href="#contact" class="btn-secondary slide">Get Consultation</a>
+                </div>
             </div>
+            <a href="#about" class="scroll-down">
+                <span>Scroll Down</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
         </div>
-        <a href="#about" class="scroll-down">
-            <span>Scroll Down</span>
-            <i class="fas fa-chevron-down"></i>
-        </a>
-    </div>
-</section>
+    </section>
 
-<!-- About Section -->
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-header">
@@ -94,7 +97,7 @@
                 </div>
                 <div class="about-image">
                     <div class="image-frame">
-                        <img src="/images/logonew.jpg" alt="Xthena Team">
+                        <img src="images/logonew.jpg" alt="Xthena Team">
                     </div>
                 </div>
             </div>
@@ -116,7 +119,6 @@
                     </div>
                     <h3>Architectural Design</h3>
                     <p>Comprehensive design solutions from concept to completion, tailored to your unique vision and requirements.</p>
-                    <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -124,7 +126,6 @@
                     </div>
                     <h3>Construction</h3>
                     <p>Premium construction services with meticulous attention to detail and quality craftsmanship.</p>
-                    <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -132,7 +133,6 @@
                     </div>
                     <h3>Consulting</h3>
                     <p>Expert guidance through every phase of your project, from planning to execution.</p>
-                    <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -140,88 +140,97 @@
                     </div>
                     <h3>Sustainable Design</h3>
                     <p>Eco-conscious solutions that reduce environmental impact while enhancing aesthetics.</p>
-                    <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
                 </div>
             </div>
         </div>
     </section>
 
-<!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-subtitle">Our Work</span>
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="divider"></div>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="projects-horizontal-scroll">
+                <!-- Project 1 -->
+                <div class="project-item">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="images/newotherprojpic2.jpg" type="image/webp">
+                            <img src="images/newotherprojpic2.jpg" alt="Modern Residential Villa" loading="lazy">
+                        </picture>
+                        <div class="project-overlay">
+                            <h3>Modern Residential Villa</h3>
+                            <p>Abuja, Nigeria</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-item">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="images/proj3.jpeg" type="image/webp">
+                            <img src="images/proj3.jpeg" alt="Commercial Office Complex" loading="lazy">
+                        </picture>
+                        <div class="project-overlay">
+                            <h3>Commercial Office Complex</h3>
+                            <p>Lagos, Nigeria</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-item">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="images/newprojpic2.jpg" type="image/webp">
+                            <img src="images/newprojpic2.jpg" alt="Luxury Apartment Building" loading="lazy">
+                        </picture>
+                        <div class="project-overlay">
+                            <h3>Luxury Apartment Building</h3>
+                            <p>Port Harcourt, Nigeria</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-item">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="images/proj.jpeg" type="image/webp">
+                            <img src="images/proj.jpeg" alt="Educational Institution" loading="lazy">
+                        </picture>
+                        <div class="project-overlay">
+                            <h3>Educational Institution</h3>
+                            <p>Enugu, Nigeria</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-item">
+                    <div class="project-image">
+                        <picture>
+                            <source srcset="images/proj2.jpeg" type="image/webp">
+                            <img src="images/proj2.jpeg" alt="Contemporary Hotel Design" loading="lazy">
+                        </picture>
+                        <div class="project-overlay">
+                            <h3>Contemporary Hotel Design</h3>
+                            <p>Calabar, Nigeria</p>
+                            <a href="#" class="project-link">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="projects-horizontal-scroll">
-            <!-- Project 1 -->
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="/images/newotherprojpic2.jpg" alt="Modern Residential Villa">
-                    <div class="project-overlay">
-                        <h3>Modern Residential Villa</h3>
-                        <p>Abuja, Nigeria</p>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 2 -->
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="/images/newbackgroundpic.jpg" alt="Commercial Office Complex">
-                    <div class="project-overlay">
-                        <h3>Commercial Office Complex</h3>
-                        <p>Lagos, Nigeria</p>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="/images/newprojpic2.jpg" alt="Luxury Apartment Building">
-                    <div class="project-overlay">
-                        <h3>Luxury Apartment Building</h3>
-                        <p>Port Harcourt, Nigeria</p>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 4 -->
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="/images/proj.jpeg" alt="Educational Institution">
-                    <div class="project-overlay">
-                        <h3>Educational Institution</h3>
-                        <p>Enugu, Nigeria</p>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Project 5 -->
-            <div class="project-item">
-                <div class="project-image">
-                    <img src="/images/proj2.jpeg" alt="Contemporary Hotel Design">
-                    <div class="project-overlay">
-                        <h3>Contemporary Hotel Design</h3>
-                        <p>Calabar, Nigeria</p>
-                        <a href="#" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- <div class="projects-cta">
-            <a href="#" class="btn-primary">View All Projects</a>
-        </div>
-    </div> -->
-</section>
+    </section>
 
     <!-- Team Section -->
     <section id="team" class="team">
@@ -234,7 +243,7 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/images/zino2.jpg" alt="Team Member">
+                        <img src="images/zino2.jpg" alt="Team Member">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -248,7 +257,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/images/usammy.jpg" alt="Team Member">
+                        <img src="images/usammy.jpg" alt="Team Member">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -262,7 +271,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-image">
-                        <img src="/images/zinoai.jpg" alt="Team Member">
+                        <img src="images/zinoai.jpg" alt="Team Member">
                         <div class="team-social">
                             <a href="#"><i class="fab fa-linkedin"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -346,7 +355,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <img src="/images/logonew.jpg" alt="Xthena Logo" class="footer-logo">
+                    <img src="images/logonew.jpg" alt="Xthena Logo" class="footer-logo">
                     <p>Transforming visions into architectural realities with innovation and precision.</p>
                 </div>
                 <div class="footer-col">
@@ -372,7 +381,7 @@
                     <h3>Newsletter</h3>
                     <p>Subscribe to our newsletter for the latest updates.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Your Email">
+                        <input type="email" placeholder="Your Email" required>
                         <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -391,12 +400,9 @@
     <a href="#home" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </a>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-<script>
-    particlesJS.load('particles-js', 'particles.json', function() {
-        console.log('Particles.js loaded');
-    });
-</script>
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

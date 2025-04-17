@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mobile Navigation
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
     
     hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
         navLinks.classList.toggle('active');
+        body.classList.toggle('no-scroll');
     });
 
     // Close mobile menu when clicking on a link
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
+            body.classList.remove('no-scroll');
         });
     });
 
@@ -34,87 +37,54 @@ document.addEventListener('DOMContentLoaded', function() {
         backToTop.classList.toggle('active', window.scrollY > 300);
     });
 
-    // Current Year for Footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Projects Filter
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
-            
-            projectCards.forEach(card => {
-                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+    backToTop.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 
-    // Testimonial Slider
-    const testimonialSlider = document.querySelector('.testimonial-slider');
-    if (testimonialSlider) {
-        let currentSlide = 0;
-        const slides = [
-            {
-                content: "Xthena transformed our vision into a breathtaking reality. Their attention to detail and innovative approach exceeded all our expectations.",
-                author: "Sarah Johnson",
-                role: "CEO, TechCorp",
-                image: "assets/testimonial-1.jpg"
-            },
-            {
-                content: "Working with Xthena was a seamless experience. They delivered our project on time and within budget while maintaining exceptional quality.",
-                author: "Michael Chen",
-                role: "Director, Urban Developments",
-                image: "assets/testimonial-2.jpg"
-            },
-            {
-                content: "The architectural solutions provided by Xthena were both functional and aesthetically stunning. They truly understand modern design principles.",
-                author: "Emily Rodriguez",
-                role: "Founder, Green Spaces",
-                image: "assets/testimonial-3.jpg"
+    // Current Year for Footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Don't prevent default if it's the back-to-top button
+            if (!this.classList.contains('back-to-top')) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.glass-nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
-        ];
+        });
+    });
 
-        function showSlide(index) {
-            const slide = slides[index];
-            testimonialSlider.innerHTML = `
-                <div class="testimonial-slide">
-                    <p class="testimonial-content">"${slide.content}"</p>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="${slide.image}" alt="${slide.author}">
-                        </div>
-                        <div class="author-info">
-                            <h4>${slide.author}</h4>
-                            <p>${slide.role}</p>
-                        </div>
-                    </div>
-                </div>
-            `;
+    // Load particles.js only on desktop
+    if (window.innerWidth > 768) {
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS.load('particles-js', 'particles.json', function() {
+                console.log('Particles.js loaded');
+            });
+        } else {
+            console.log('Particles.js not loaded - script not available');
         }
-
-        // Initial slide
-        showSlide(currentSlide);
-
-        // Auto-rotate slides every 5 seconds
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
     }
 
-    // Contact Form Submission
+    // Form Submission
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -127,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = document.getElementById('message').value;
             
             // Here you would typically send the data to a server
-            console.log({ name, email, subject, message });
+            console.log('Form submitted:', { name, email, subject, message });
             
             // Show success message
             alert('Thank you for your message! We will get back to you soon.');
@@ -137,26 +107,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    // Newsletter Form
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
+            const emailInput = this.querySelector('input[type="email"]');
+            console.log('Newsletter subscription:', emailInput.value);
+            alert('Thank you for subscribing to our newsletter!');
+            emailInput.value = '';
         });
-    });
+    }
 
     // Animate Elements on Scroll
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.service-card, .project-card, .team-card');
+        const elements = document.querySelectorAll('.service-card, .project-item, .team-card, .hero-content, .about-content > div, .contact-content > div');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -170,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Set initial state for animated elements
-    document.querySelectorAll('.service-card, .project-card, .team-card').forEach(element => {
+    document.querySelectorAll('.service-card, .project-item, .team-card, .hero-content, .about-content > div, .contact-content > div').forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
         element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -178,4 +143,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', animateOnScroll);
     animateOnScroll(); // Run once on page load
+
+    // Handle window resize for particles.js
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 768 && typeof particlesJS !== 'undefined' && !document.getElementById('particles-js').hasChildNodes()) {
+                particlesJS.load('particles-js', 'particles.json');
+            }
+        }, 250);
+    });
 });
